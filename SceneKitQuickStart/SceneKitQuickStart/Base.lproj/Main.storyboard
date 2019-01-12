@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z31-Yc-XVv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="bH8-zl-qO0">
+            <objects>
+                <viewController id="z31-Yc-XVv" customClass="ViewController" customModule="SceneKitQuickStart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uF8-GQ-524">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rsd-26-ttZ">
+                                <rect key="frame" x="16" y="619" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Atoms"/>
+                                    <segment title="Methane"/>
+                                    <segment title="Ethanol"/>
+                                    <segment title="PTFE"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="z31-Yc-XVv" eventType="valueChanged" id="VYI-az-b9q"/>
+                                </connections>
+                            </segmentedControl>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doN-0Q-8BX" userLabel="Scene View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="547"/>
+                            </sceneKitView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geometry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-EI-dvi">
+                                <rect key="frame" x="0.0" y="20" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="sIq-cA-cfb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iRR-EI-dvi" firstAttribute="top" secondItem="OwW-M5-Ad2" secondAttribute="top" id="1XN-dP-FVd"/>
+                            <constraint firstItem="doN-0Q-8BX" firstAttribute="trailing" secondItem="iRR-EI-dvi" secondAttribute="trailing" id="4hY-Km-qRv"/>
+                            <constraint firstItem="OwW-M5-Ad2" firstAttribute="trailing" secondItem="Rsd-26-ttZ" secondAttribute="trailing" constant="16" id="6Ox-fF-s5B"/>
+                            <constraint firstItem="Rsd-26-ttZ" firstAttribute="top" secondItem="doN-0Q-8BX" secondAttribute="bottom" constant="8" id="IvL-wL-Ogu"/>
+                            <constraint firstItem="OwW-M5-Ad2" firstAttribute="bottom" secondItem="Rsd-26-ttZ" secondAttribute="bottom" constant="20" id="Jwx-N9-RzV"/>
+                            <constraint firstItem="doN-0Q-8BX" firstAttribute="trailing" secondItem="OwW-M5-Ad2" secondAttribute="trailing" id="TCa-P8-uk0"/>
+                            <constraint firstItem="Rsd-26-ttZ" firstAttribute="leading" secondItem="OwW-M5-Ad2" secondAttribute="leading" constant="16" id="cvF-Sq-00C"/>
+                            <constraint firstItem="doN-0Q-8BX" firstAttribute="top" secondItem="OwW-M5-Ad2" secondAttribute="top" constant="44" id="kS2-jG-Xbs"/>
+                            <constraint firstItem="Rsd-26-ttZ" firstAttribute="top" secondItem="doN-0Q-8BX" secondAttribute="bottom" constant="8" id="lXl-qS-nvk"/>
+                            <constraint firstItem="doN-0Q-8BX" firstAttribute="leading" secondItem="OwW-M5-Ad2" secondAttribute="leading" id="thc-vu-DXk"/>
+                            <constraint firstItem="doN-0Q-8BX" firstAttribute="leading" secondItem="iRR-EI-dvi" secondAttribute="leading" id="ySy-mD-2Wp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OwW-M5-Ad2"/>
+                    </view>
+                    <connections>
+                        <outlet property="geometryLabel" destination="iRR-EI-dvi" id="p0U-Kl-dm4"/>
+                        <outlet property="sceneView" destination="doN-0Q-8BX" id="dQP-ev-THo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5l-Oz-Xlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29.600000000000001" y="160.56971514242881"/>
+        </scene>
+    </scenes>
+</document>
