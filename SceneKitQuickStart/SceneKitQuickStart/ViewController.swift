@@ -26,7 +26,7 @@ class ViewController: UIViewController
         sceneSetUp()
         
         //Add Lighting
-        sceneView.autoenablesDefaultLighting = true
+        //sceneView.autoenablesDefaultLighting = true
         //add camera control
         sceneView.allowsCameraControl = true
     }
@@ -51,7 +51,20 @@ class ViewController: UIViewController
         let boxGeometry = SCNBox(width: 10.0, height: 10.0, length: 10.0, chamferRadius: 1.0)
         let boxNode = SCNNode(geometry: boxGeometry)
         
+        let ambientLightNode = SCNNode()
+        ambientLightNode.light = SCNLight()
+        ambientLightNode.light!.type = SCNLight.LightType.ambient
+        ambientLightNode.light!.color = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        
+        let omniLightNode = SCNNode()
+        omniLightNode.light = SCNLight()
+        omniLightNode.light!.type = SCNLight.LightType.omni
+        omniLightNode.light!.color = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        omniLightNode.position = SCNVector3Make(0, 50, 50)
+        
         scene.rootNode.addChildNode(boxNode)
+        scene.rootNode.addChildNode(ambientLightNode)
+        scene.rootNode.addChildNode(omniLightNode)
         
         sceneView.scene = scene
     }
