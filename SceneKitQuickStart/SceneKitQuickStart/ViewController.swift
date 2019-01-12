@@ -14,6 +14,12 @@ class ViewController: UIViewController
     @IBOutlet weak var geometryLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
     
+    //Geometry
+    var geometryNode: SCNNode = SCNNode()
+    
+    //Gestures
+    var currentAngle: Float = 0.0
+    
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +34,7 @@ class ViewController: UIViewController
         //Add Lighting
         //sceneView.autoenablesDefaultLighting = true
         //add camera control
-        sceneView.allowsCameraControl = true
+        //sceneView.allowsCameraControl = true
     }
     
     //MARK: transition
@@ -72,5 +78,21 @@ class ViewController: UIViewController
         scene.rootNode.addChildNode(cameraNode)
         
         sceneView.scene = scene
+        
+        geometryNode = boxNode
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ViewController.panGesture(sender:)))
+        sceneView.addGestureRecognizer(panRecognizer)
+    }
+    
+    @objc func panGesture(sender: UIPanGestureRecognizer){
+        let translation = sender.translation(in: sender.view!)
+        var newAngle = (Float)(translation.x)*(Float)(Double.pi)/180.0
+        newAngle += currentAngle
+        
+        geometryNode.transform = SCNMatrix4MakeRotation(newAngle, 0, 1, 0)
+        
+        if(sender.state == UIGestureRecognizer.State.ended){
+            currentAngle = newAngle
+        }
     }
 }
