@@ -62,9 +62,14 @@ class ViewController: UIViewController
         omniLightNode.light!.color = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         omniLightNode.position = SCNVector3Make(0, 50, 50)
         
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3Make(0, 0, 25)
+        
         scene.rootNode.addChildNode(boxNode)
         scene.rootNode.addChildNode(ambientLightNode)
         scene.rootNode.addChildNode(omniLightNode)
+        scene.rootNode.addChildNode(cameraNode)
         
         sceneView.scene = scene
     }
