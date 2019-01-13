@@ -27,7 +27,7 @@
                                     <segment title="PTFE"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentValueChanged:" destination="z31-Yc-XVv" eventType="valueChanged" id="VYI-az-b9q"/>
+                                    <action selector="segmentValueChanged:" destination="z31-Yc-XVv" eventType="valueChanged" id="YDE-uS-dTn"/>
                                 </connections>
                             </segmentedControl>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doN-0Q-8BX" userLabel="Scene View">

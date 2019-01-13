@@ -50,8 +50,26 @@ class ViewController: UIViewController
     }
     
     //MARK: IBAction
-    @IBAction func segmentValueChanged(sender: UISegmentedControl) {
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        geometryNode.removeFromParentNode()
+        currentAngle = 0
         
+        switch sender.selectedSegmentIndex{
+        case 0:
+            geometryLabel.text = "Atoms\n"
+            geometryNode = Atoms.allAtoms()
+        case 1:
+            geometryLabel.text = "Methane\n"
+            geometryNode = Molecules.methaneMolecule()
+        case 2:
+            geometryLabel.text = "Ethanol"
+        case 3:
+            geometryLabel.text = "Polytetrafluoroethylene"
+        default:
+            break
+        }
+        
+        sceneView.scene!.rootNode.addChildNode(geometryNode)
     }
     
     //MARK: Scene
